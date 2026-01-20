@@ -8,3 +8,176 @@ help
 q
 clock 10 100000
 q
+version
+pins
+configuration
+version
+coefficients
+trigger
+stop
+trigger
+help
+send test
+stop
+send test
+trigger
+stop
+trigger
+stop
+send test
+stop
+trigger
+send test
+stop
+send test
+baseline off
+clock 1000 10000 100000
+stop
+baseline on
+clock 1000 10000 100000
+baseline off
+clock 1000 10000 100000
+stop
+clock 1000 10000 100000
+stop
+baseline on
+clock 1000 10000 100000
+clock 10000 10000 100000
+clock 1000 10000 100000
+clock 100 10000 10000
+stop
+clock 100 10000 10000
+stop
+clock 1000 10000 10000
+reader
+clock 100 10000 100000
+stop
+baseline on
+send test
+clock 100 10000 100000
+clock 1000 10000 100000
+clock 1000 10000 10000
+clock 10000 10000 10000
+stop
+clock 4000 10000 10000
+stop
+baseline off
+clock 4000 10000 10000
+baseline off
+clock 4000 10000 10000
+baseline on
+clock 4000 10000 10000
+stop
+clock 4000 1000 10000
+stop
+clock 4000 1000 10000
+clock 4000 10000 100
+stop
+clock 4000 1000 100
+clock 4000 100 1000
+clock 4000 1000 1000
+clock 4000 10000 1000
+clock 4000 1000 10000
+clock 2 1000 10000
+clock 3000 1000 10000
+baseline off
+clock 3000 1000 10000
+clock 3000 10000 10000
+clock 3000 1000 7500
+clock 3000 1000 9000
+baseline on
+clock 3000 1000 9000
+clock 3000 1000 10000
+clock 3000 10000 10000
+baseline off
+clock 3000 10000 10000
+baseline on
+clock 3000 10000 10000
+clock 3000 10000 30000
+baseline off
+clock 3000 10000 30000
+clock 3000 30000 30000
+stop
+clock 3000 50000 30000
+clock 3000 50000 50000
+stop
+clock 3000 5000 5000
+clock 3000 7500 7500
+clock 3000 15000 15000
+accumulator off
+clock 3000 15000 15000
+accumulator on
+clock 3
+clock 10
+clock 10000
+trigger 10000
+stop
+trigger 10000
+set trigger rising
+stop
+set trigger rising
+trigger 10000
+stop
+add init
+clock 10000
+baseline off
+clock 10000
+clock 3000 15000 15000
+clock 5 7500 7500
+clock 5000 7500 7500
+stop 
+baseline off
+clock 5000 7500 7500
+stop
+baseline on
+clock 5000 7500 7500
+clock 5000 7500 10000
+clock 5000 7500 100
+clock 5000 17500 10000
+clock 5000 17500 20000
+clock 5000 100 10000
+clock 5000 500 10000
+stop
+clock 5000 1000 10000
+stop
+baseline off
+clock 5000 1000 10000
+stop
+clock 5000 1000 10000
+stop
+baseline on
+clock 5000 1000 10000
+stop
+baseline on
+clock 5000 100 10000
+stop
+clock 5000 1000 10000
+stop
+baseline off
+clock 5000 1000 10000
+stop
+baseline on
+clock 5000 1000 10000
+stop
+clock 5000 750 10000
+clock 5000 750 1000
+clock 5000 750 10000
+clock 5000 100 10000
+clock 5000 50 10000
+clock 5000 50 1000
+stop
+clock 5000 50 8000
+stop
+clock 5000 1 8000
+clock 5000 5 8000
+clock 5000 50 8000
+clock 5000 500 8000
+stop
+clock 5000 50 8000
+clock 5000 5 8000
+stop
+clock 5000 5 8000
+clock 50000 5 8000
+stop
+clock 50000 5 8000
+stop
