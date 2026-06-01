@@ -2253,7 +2253,7 @@ void setup() {
   digitalWriteFast(SHPin, LOW);
   
   pinMode(ICGPin,    OUTPUT);
-  digitalWriteFast(ICGPin, HIGH);
+  digitalWriteFast(ICGPin, LOW);
   
   // Clock
   pinMode(fMPin,     OUTPUT);   
@@ -2270,7 +2270,7 @@ void setup() {
   pinMode(analogPin, INPUT);
   //  pinMode(analogPin, INPUT_PULLUP);
   adc->adc0->setReference(ADC_REFERENCE::REF_3V3); 
-  adc->adc0->setAveraging(1);                 // set number of averages
+  adc->adc0->setAveraging(0);                 // set number of averages
   adc->adc0->setResolution(12);               // set bits of resolution
   adc->adc0->setConversionSpeed(ADC_CONVERSION_SPEED::HIGH_SPEED); 
   adc->adc0->setSamplingSpeed(ADC_SAMPLING_SPEED::VERY_HIGH_SPEED); 
