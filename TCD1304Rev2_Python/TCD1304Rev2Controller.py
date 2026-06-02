@@ -5,15 +5,12 @@ TCD1304Rev2Controller - Control module for TCD1304 CCD Sensor
 
 Handles serial communication with TCD1304 CCD sensors, data acquisition,
 visualization, and file I/O for spectrographic measurements.
-
-Mitchell C. Nelson (c) 2023
-Refactored for improved modularity and readability.
 """
 
-__author__    = "Mitchell C. Nelson, PhD"
-__copyright__ = "Copyright 2023, Mitchell C, Nelson"
-__version__   = "0.3"
-__email__     = "drmcnelson@gmail.com"
+__author__    = "Will Gallagher"
+__copyright__ = ""
+__version__   = "0.1"
+__email__     = ""
 __status__    = "alpha testing"
 
 __all__ = ['LccdFrame', 'LccdData', 'LccdDataset', 'LccdController']
@@ -72,10 +69,10 @@ except Exception:
     HAS_GRAPHICS_WINDOW = False
 
 # Module constants
-VERSION_STRING = (
-    f'TCD1304Rev2Controller.py - version {__version__} {__status__} '
-    f'M C Nelson, PhD, (c) 2023'
-)
+# VERSION_STRING = (
+#     f'TCD1304Rev2Controller.py - version {__version__} {__status__} '
+#     f'M C Nelson, PhD, (c) 2023'
+# )
 
 # ============================================================================
 # MAIN CONTROLLER CLASS
@@ -93,7 +90,7 @@ class LccdController:
     _ids = count(0)
     
     def __init__( self, portspec, readtimeout=1., writetimeout=1., monitor=True, graphics=True,
-                  graph_by_pixels=False, xrange=None, yrange=None, graph_ylabel='spectrum',
+                  graph_by_pixels=False, xrange=None, yrange=None, graph_ylabel='Light intensity',
                   coefficients=None, gui=False,
                   debug=False ):
 
@@ -1473,7 +1470,7 @@ if __name__ == "__main__":
 
     sleep(1)
     print( "" )
-    print( VERSION_STRING )
+    # print( VERSION_STRING )
     
     serialdevice.commandloop( name="LCCD", fileprefix=None )
 
