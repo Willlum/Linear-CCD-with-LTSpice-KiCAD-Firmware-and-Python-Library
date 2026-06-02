@@ -187,7 +187,21 @@ clock 1000 5 10000
 save test2
 recall test1.lccd
 recall test2.20260218.111321.517056.lccd
-
 clock 1 5 10000
 save test3
 recall test3.lccd
+clock 1 5 10000
+clock 1 50 10000
+clock 1 5 10000
+clock 1 50 10000
+clock 1 5 10000
+baseline off
+clock 1 5 10000
+baseline off
+clock 1 50 10000
+clock 10000 50 10000
+stop
+clock 10000 5 10000
+stop
+clock 10000 50 10000
+clock 10000 500 10000

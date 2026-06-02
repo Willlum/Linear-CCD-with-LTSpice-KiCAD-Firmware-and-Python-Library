@@ -91,7 +91,7 @@ class LccdController:
     
     def __init__( self, portspec, readtimeout=1., writetimeout=1., monitor=True, graphics=True,
                   graph_by_pixels=False, xrange=None, yrange=None, graph_ylabel='Light intensity',
-                  coefficients=None, gui=False,
+                  coefficients=None, gui=True,
                   debug=False ):
 
         
