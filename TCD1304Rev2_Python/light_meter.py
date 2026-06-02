@@ -26,21 +26,23 @@ class LightMeter:
     Provides normalized light intensity (0-1) without spectrographic features.
     """
     
-    def __init__(self, port, debug=False):
+    def __init__(self, port, debug=False, graphics=False):
         """
         Initialize the light meter.
         
         Args:
             port: Serial port (e.g., '/dev/ttyACM1')
             debug: Enable debug output
+            graphics: Show real-time graphics window (default: False)
         """
-        # Initialize controller WITHOUT graphics/GUI (simpler, faster)
+        # Initialize controller with optional graphics
         self.controller = LccdController(
             port,
-            monitor=False,      # No text window
-            graphics=False,     # No graphics window
-            gui=False,          # No GUI
-            debug=debug
+            monitor=False,              # No text window
+            graphics=graphics,          # Enable graphics if requested
+            gui=False,                  # No GUI (use graphics instead)
+            debug=debug,
+            graph_ylabel='Light Intensity'
         )
         
         print(f"Light meter initialized on {port}")
