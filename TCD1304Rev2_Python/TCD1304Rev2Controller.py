@@ -27,6 +27,7 @@ import os
 import signal
 import atexit
 import platform
+import struct
 from time import sleep, time
 from datetime import datetime
 from itertools import count
