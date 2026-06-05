@@ -205,3 +205,77 @@ clock 10000 5 10000
 stop
 clock 10000 50 10000
 clock 10000 500 10000
+clock 10000 5 10000
+baseline off
+baseline on
+stop
+clock 10000 50 10000
+baseline off
+stop
+clock 10000 5 10000
+stop
+clock 10000 5 100000
+stop
+clock 10000 5 100000
+stop
+clock 10000 5 100000
+stop
+pwm
+pwm 1 1
+pwm <1> <256>
+pwm 3 256
+pwm 8 127
+clock 10000 5 100000
+pwm 16 127
+stop
+pwm 16 127
+pwm 16 1024
+pwm 10 127 1024
+clock 10000 5 100000
+stop
+pwm 10 10 1024
+clock 10000 5 100000
+stop
+clock 1 5 100000
+clock 1000 5 100000
+top
+\stop
+stop
+pwm 10 10
+pwm 8 1
+pwm 8 40
+clock 1000 5 100000
+stop
+pwm 8 10
+clock 1000 5 100000
+stop
+pwm 8 20
+clock 1000 5 100000
+stop
+pwm 8 17
+clock 1000 5 100000
+stop
+pwm 8 15
+clock 1000 5 100000
+stop
+clock 1000 5 100000
+pwm 8 15
+clock 1000 5 100000
+stop
+pwm 8 14
+clock 1000 5 100000
+clock 10000 5 100000
+stop
+pwm 8 14
+clock 10000 5 100000
+stop
+pwm 8 16
+stop
+pwm 8 14
+pwm 8 18
+clock 10000 5 100000
+pwm 8 18
+clock 10000 5 100000
+pwm 8 18
+clock 10000 5 100000
+pwm 10 64

@@ -40,7 +40,7 @@ from utils import (
     lineno, errorprint, input_ready, key_in_list,
     generate_x_vector, split_bracketed
 )
-from data_models import LccdFrame, LccdData, LccdDataset
+from DataModels import LccdFrame, LccdData, LccdDataset
 
 # Optional UI modules
 try:
@@ -54,25 +54,11 @@ try:
     HAS_TEXT_WINDOW = True
 except Exception:
     HAS_TEXT_WINDOW = False
-
-try:
-    from GUIWindow import GUIWindow
-    HAS_GUI_WINDOW = True
-except Exception as e:
-    HAS_GUI_WINDOW = False
-    print(f"GUIWindow import error: {e}")
-
 try:
     from GraphicsWindow import GraphicsWindow
     HAS_GRAPHICS_WINDOW = True
 except Exception:
     HAS_GRAPHICS_WINDOW = False
-
-# Module constants
-# VERSION_STRING = (
-#     f'TCD1304Rev2Controller.py - version {__version__} {__status__} '
-#     f'M C Nelson, PhD, (c) 2023'
-# )
 
 # ============================================================================
 # MAIN CONTROLLER CLASS
@@ -91,13 +77,9 @@ class LccdController:
     
     def __init__( self, portspec, readtimeout=1., writetimeout=1., monitor=True, graphics=True,
                   graph_by_pixels=False, xrange=None, yrange=None, graph_ylabel='Light intensity',
-                  coefficients=None, gui=True,
+                  coefficients=None,
                   debug=False ):
 
-        
-        if gui and not HAS_GUI_WINDOW:
-            raise ValueError( "GUI requested, but GUIWindow.py not loaded" )
-            
         if graphics and not HAS_GRAPHICS_WINDOW:
             raise ValueError( "Graphics requested, but GraphicsWindow.py not loaded" )
             
@@ -220,22 +202,10 @@ class LccdController:
             xrange = (self.xdata[0],self.xdata[-1])
         if yrange is None:
             yrange = (-self.vfs/20,self.vfs)
-            
-        if gui:
-            # We will want to query these from the device
-            self.GraphicsWindow = GUIWindow( "LCCDController Data " + portspec,
-                                             xdata = self.xdata,
-                                             xlabel = self.xlabel,
-                                             ycols = [ np.zeros(self.datalength) ],
-                                             yrange = (-self.vfs/20,self.vfs),
-                                             ylabels = [graph_ylabel],
-                                             flag = self.flag,
-                                             parentinstance = self,
-                                             filespec = os.path.join( 'datafile', self.filesuffix ),
-                                             debug = self.debug )
-            self.GraphicsWindow.start( )
 
-        elif graphics:
+
+
+        if graphics:
             # We will want to query these from the device
             self.GraphicsWindow = GraphicsWindow( "LCCDController Data " + portspec,
                                                   xdata = self.xdata,
@@ -1331,22 +1301,6 @@ class LccdController:
 
         return
 
-
-# ============================================================================
-# BACKWARD COMPATIBILITY ALIASES
-# ============================================================================
-# These aliases maintain compatibility with existing code that uses old names
-
-LCCDFRAME = LccdFrame
-LCCDDATA = LccdData
-LCCDDATASET = LccdDataset
-LCCDCONTROLLER = LccdController
-
-# Update exports for backward compatibility
-__all__.extend(['LCCDFRAME', 'LCCDDATA', 'LCCDDATASET', 'LCCDCONTROLLER'])
-
-# =========================================================================================================
-
 if __name__ == "__main__":
 
     import argparse
@@ -1396,7 +1350,6 @@ if __name__ == "__main__":
     
     parser.add_argument( '--pixels', action = 'store_true', help='graph pixel indices on x-axis' )
     
-    parser.add_argument( '--guiwindow', action = 'store_true', help='gui version of the graphical display' )
     
     parser.add_argument( '--loggingwindow', action = 'store_true', help='display transactions in a scrolling text window' )
 
@@ -1448,7 +1401,7 @@ if __name__ == "__main__":
         quit()
         
     # ---------------------------------------------------------
-    serialdevice = LccdController( args.ports[0], monitor=args.loggingwindow, graph_by_pixels=args.pixels, gui=args.guiwindow, debug=args.debug )
+    serialdevice = LccdController( args.ports[0], monitor=args.loggingwindow, graph_by_pixels=args.pixels, debug=args.debug )
     dataport = None
     
     if len(args.ports) > 1:
@@ -1470,8 +1423,7 @@ if __name__ == "__main__":
 
     sleep(1)
     print( "" )
-    # print( VERSION_STRING )
-    
+     
     serialdevice.commandloop( name="LCCD", fileprefix=None )
 
     serialdevice.close()
